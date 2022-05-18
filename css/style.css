@@ -33,7 +33,7 @@
     opacity: 0;
   }
   100% {
-    right: 35%;
+    right: 25%;
     opacity: 1;
   }
 }
@@ -43,7 +43,7 @@
     opacity: 0;
   }
   100% {
-    right: 35%;
+    right: 25%;
     opacity: 1;
   }
 }
@@ -53,7 +53,7 @@
     opacity: 0;
   }
   100% {
-    right: 10%;
+    right: 5%;
     opacity: 1;
   }
 }
@@ -63,7 +63,7 @@
     opacity: 0;
   }
   100% {
-    right: 10%;
+    right: 5%;
     opacity: 1;
   }
 }
@@ -410,6 +410,12 @@ header ~ section h2 {
   line-height: 50px;
   text-align: center;
 }
+@media screen and (max-width:640px) {
+  header ~ section h2 {
+    font-size: 38px;
+    line-height: 50px;
+  }
+}
 header ~ section h2:after {
   display: block;
   width: 138px;
@@ -417,6 +423,14 @@ header ~ section h2:after {
   margin: 30px auto 0;
   background-image: url(./../images/deco_tit.png);
   content: "";
+}
+@media screen and (max-width:640px) {
+  header ~ section h2:before {
+    left: -3px;
+    top: 0;
+    font-size: 38px;
+    line-height: 50px;
+  }
 }
 header ~ section .pen {
   overflow: hidden;
@@ -464,25 +478,11 @@ header ~ section .clse {
   background-image: url(./../images/button.png);
 }
 
-@media screen and (max-width:640px) {
-  section#aboutme > h2 {
-    font-size: 38px;
-    line-height: 50px;
-  }
-}
 section#aboutme > h2:before {
   display: block;
   transform: translate(3px, 50px);
   color: #2C3E50;
   content: "ABOUT ME";
-}
-@media screen and (max-width:640px) {
-  section#aboutme > h2:before {
-    left: -3px;
-    top: 0;
-    font-size: 38px;
-    line-height: 50px;
-  }
 }
 section#aboutme > .container {
   display: flex;
@@ -707,7 +707,7 @@ section#aboutme > .workstyle > .container > p {
 }
 section#aboutme > .workstyle > .container > p.before {
   opacity: 0;
-  top: 20px;
+  top: 30px;
 }
 section#aboutme > .workstyle > .container > p.after {
   opacity: 0;
@@ -719,7 +719,21 @@ section#aboutme > .talk {
   background-position: 0 center;
 }
 section#aboutme > .talk > h3 {
-  padding: 64px 0;
+  text-indent: -99999px;
+}
+section#aboutme > .talk .screen {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 620px;
+}
+section#aboutme > .talk .screen > h3 {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
   font-weight: 600;
   font-size: 32px;
   text-align: center;
@@ -729,45 +743,89 @@ section#aboutme > .talk > h3 {
   background-image: url(./../images/aboutme/point_talk.png);
   background-position: center center;
 }
-section#aboutme > .talk > ul {
+section#aboutme > .talk .screen > .talk__container {
+  position: absolute;
+  left: 0;
+  top: 100px;
   display: flex;
-  justify-content: space-evenly;
+  width: 200%;
+}
+section#aboutme > .talk .screen > .talk__container > li {
+  width: 200%;
   padding-bottom: 20px;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk > ul {
+  section#aboutme > .talk .screen > .talk__container > li {
     display: block;
     width: 95%;
     margin: 0 auto;
   }
 }
-section#aboutme > .talk > ul > li {
-  position: relative;
-  /*기준점 설정*/
-  width: 30%;
+section#aboutme > .talk .screen > .talk__container > li ol {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 450px;
   min-width: 155px;
   min-height: 400px;
+  box-sizing: border-box;
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(1) > h4:after {
+  background-position: 55% -170px;
+  background-size: 300%;
+  background-image: url(../images/aboutme/friend-1.jpg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(2) > h4:after {
+  background-position: -25px 0;
+  background-image: url(../images/aboutme/friend-2.jpeg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(3) > h4:after {
+  background-size: 100%;
+  background-position: 0 0;
+  background-image: url(../images/aboutme/friend-3.jpg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(4) > h4:after {
+  background-position: center -30px;
+  background-image: url(../images/aboutme/friend-4.jpg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(1) > h4:after {
+  background-size: 200%;
+  background-position: center -80px;
+  background-image: url(../images/aboutme/friend-5.jpg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(2) > h4:after {
+  background-position: 0 -20px;
+  background-image: url(../images/aboutme/friend-6.jpg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(3) > h4:after {
+  background-position: 0 0;
+  background-image: url(../images/aboutme/friend-7.jpg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(4) > h4:after {
+  background-size: 200%;
+  background-position: 0 -150px;
+  background-image: url(../images/aboutme/friend-8.jpg);
+}
+section#aboutme > .talk .screen > .talk__container > li ol > li {
+  position: relative;
+  /*기준점 설정*/
+  width: 25%;
+  height: 450px;
   margin-bottom: 20px;
   padding: 0 2%;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk > ul > li {
+  section#aboutme > .talk .screen > .talk__container > li ol > li {
     width: 100%;
     min-height: 450px;
     padding: 0 10%;
     box-shadow: 0 0 10px rgba(14, 14, 14, 0.5);
   }
 }
-@media screen and (max-width:640px) {
-  section#aboutme > .talk > ul > li:last-child {
-    margin-bottom: 0;
-  }
-}
-section#aboutme > .talk > ul > li > h4 {
+section#aboutme > .talk .screen > .talk__container > li ol > li > h4 {
   position: absolute;
   left: 50%;
   top: 140px;
@@ -777,10 +835,10 @@ section#aboutme > .talk > ul > li > h4 {
   letter-spacing: 3px;
   /*자동줄바꿈 안됨*/
   white-space: nowrap;
-  background-color: #68c3a3;
+  background-color: #daafff;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk > ul > li > h4 {
+  section#aboutme > .talk .screen > .talk__container > li ol > li > h4 {
     top: initial;
     bottom: 15px;
     margin-left: -30px;
@@ -789,7 +847,7 @@ section#aboutme > .talk > ul > li > h4 {
     text-indent: 5px;
   }
 }
-section#aboutme > .talk > ul > li > h4:after {
+section#aboutme > .talk .screen > .talk__container > li ol > li > h4:after {
   display: block;
   position: absolute;
   left: -105px;
@@ -802,25 +860,12 @@ section#aboutme > .talk > ul > li > h4:after {
   content: "";
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk > ul > li > h4:after {
+  section#aboutme > .talk .screen > .talk__container > li ol > li > h4:after {
     top: -370px;
     left: -50px;
   }
 }
-section#aboutme > .talk > ul > li:nth-child(1) > h4:after {
-  background-position: center -30px;
-  background-size: 120%;
-  background-image: url(../images/aboutme/friend-1.jpg);
-}
-section#aboutme > .talk > ul > li:nth-child(2) > h4:after {
-  background-position: -30px 0;
-  background-image: url(../images/aboutme/friend-2.jpeg);
-}
-section#aboutme > .talk > ul > li:nth-child(3) > h4:after {
-  background-position: 0 -50px;
-  background-image: url(../images/aboutme/friend-3.jpeg);
-}
-section#aboutme > .talk > ul > li > strong {
+section#aboutme > .talk .screen > .talk__container > li ol > li > strong {
   display: block;
   margin: 180px 0 30px;
   font-size: 15px;
@@ -831,18 +876,52 @@ section#aboutme > .talk > ul > li > strong {
   text-overflow: ellipsis;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk > ul > li > strong {
+  section#aboutme > .talk .screen > .talk__container > li ol > li > strong {
     margin: 210px 0 30px;
   }
 }
-section#aboutme > .talk > ul > li > p {
+section#aboutme > .talk .screen > .talk__container > li ol > li > p {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 180px;
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
   line-height: 1.8;
   text-align: center;
 }
+section#aboutme > .talk .screen > .talk__container > li ol > li > p::-webkit-scrollbar {
+  display: none;
+}
 @media screen and (max-width:640px) {
-  section#aboutme > .talk > ul > li > p > br {
+  section#aboutme > .talk .screen > .talk__container > li ol > li > p > br {
     display: none;
   }
+}
+section#aboutme > .talk .screen > a {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+}
+section#aboutme > .talk .screen > a.talk-prev {
+  left: 0;
+}
+section#aboutme > .talk .screen > a.talk-next {
+  right: 0;
+}
+section#aboutme > .talk .screen > a:hover > i {
+  color: #daafff;
+}
+section#aboutme > .talk .screen > a > i {
+  color: #2C3E50;
+  font-size: 50px;
+  text-align: center;
+  line-height: 80px;
 }
 
 section#skill > h2:before {
@@ -851,21 +930,13 @@ section#skill > h2:before {
   color: #2C3E50;
   content: "SKILL";
 }
-@media screen and (max-width:640px) {
-  section#skill > h2:before {
-    left: -3px;
-    top: 0;
-    font-size: 38px;
-    line-height: 50px;
-  }
-}
 section#skill > article.skill-1 {
   margin-bottom: 120px;
 }
 @media screen and (max-width:640px) {
   section#skill > article.skill-1 {
     margin-bottom: 0;
-    padding-bottom: 40px;
+    padding: 40px 0;
     border: 1px solid #eee;
   }
 }
@@ -931,28 +1002,26 @@ section#skill > article > ol > li > p {
   line-height: 1.6;
 }
 section#skill > article.skill-1 li:first-child {
-  padding-left: 360px;
+  transform: translateX(140px);
   background-image: url(./../images/skill/skill01.png);
-  background-position: 180px 0;
 }
 @media screen and (max-width:640px) {
   section#skill > article.skill-1 li:first-child {
-    padding-left: 180px;
-    background-position: 0 0;
+    background-position: -30px 0;
+    transform: translateX(0);
   }
 }
 section#skill > article.skill-1 li:last-child {
   background-image: url(./../images/skill/skill02.png);
 }
 section#skill > article.skill-2 li:first-child {
-  padding-left: 360px;
+  transform: translateX(180px);
   background-image: url(./../images/skill/skill03.png);
-  background-position: 180px 0;
 }
 @media screen and (max-width:640px) {
   section#skill > article.skill-2 li:first-child {
-    padding-left: 180px;
     background-position: 0 0;
+    transform: translateX(0);
   }
 }
 section#skill > article.skill-2 li:last-child {
@@ -967,25 +1036,11 @@ section#ability > h2 {
   color: #222;
   text-shadow: -1px 0 #f4ffaf, 0 1px #f4ffaf, 1px 0 #f4ffaf, 0 -1px #f4ffaf;
 }
-@media screen and (max-width:640px) {
-  section#ability > h2 {
-    font-size: 38px;
-    line-height: 50px;
-  }
-}
 section#ability > h2:before {
   display: block;
   transform: translate(3px, 50px);
   color: #f4ffaf;
   content: "ABILITY";
-}
-@media screen and (max-width:640px) {
-  section#ability > h2:before {
-    left: -3px;
-    top: 0;
-    font-size: 38px;
-    line-height: 50px;
-  }
 }
 section#ability > .ability-container {
   padding-bottom: 50px;
@@ -1153,7 +1208,7 @@ section#ability > .resume > div > .iam > a {
   line-height: 40px;
   letter-spacing: 1px;
   text-align: center;
-  background-color: #222;
+  background-color: #2C3E50;
 }
 @media screen and (max-width:640px) {
   section#ability > .resume > div > .iam > a {
@@ -1161,6 +1216,7 @@ section#ability > .resume > div > .iam > a {
   }
 }
 section#ability > .resume > div > .iam > a:hover {
+  color: #2C3E50;
   background-color: #D0E4FF;
 }
 section#ability > .resume > div > .iam > .shadow {
@@ -1211,14 +1267,6 @@ section#uxdesign > h2:before {
   transform: translate(3px, 50px);
   color: #2C3E50;
   content: "UX DESIGN";
-}
-@media screen and (max-width:640px) {
-  section#uxdesign > h2:before {
-    left: -3px;
-    top: 0;
-    font-size: 38px;
-    line-height: 50px;
-  }
 }
 section#uxdesign > .slides {
   overflow: hidden;
@@ -1345,8 +1393,8 @@ section#uxdesign > .intro > h3:before {
   position: absolute;
   left: 0;
   top: 0;
-  width: 48px;
-  height: 86px;
+  width: 58px;
+  height: 156px;
   background-image: url(./../images/deocBlockTransparent.png);
   content: "";
 }
@@ -1381,42 +1429,48 @@ section#uxdesign > .intro > p {
 }
 section#uxdesign > .intro > p > span {
   display: block;
+}
+section#uxdesign > .intro > p > span:nth-of-type(1) {
   margin-bottom: 30px;
+}
+section#uxdesign > .intro > p > span:nth-of-type(2) {
+  margin-top: 30px;
 }
 section#uxdesign > .intro > p > strong {
   font-weight: 400;
 }
-section#uxdesign > .intro .bus-alarm {
+section#uxdesign > .intro .heinz {
   display: flex;
 }
 @media screen and (max-width:640px) {
-  section#uxdesign > .intro .bus-alarm {
+  section#uxdesign > .intro .heinz {
     flex-direction: column-reverse;
   }
 }
-section#uxdesign > .intro .bus-alarm > h4 {
+section#uxdesign > .intro .heinz > h4 {
   width: 43%;
   align-self: flex-end;
   text-align: right;
   margin-right: 20px;
 }
 @media screen and (max-width:640px) {
-  section#uxdesign > .intro .bus-alarm > h4 {
+  section#uxdesign > .intro .heinz > h4 {
     width: 100%;
     margin-right: 0;
     text-align: center;
   }
 }
-section#uxdesign > .intro .bus-alarm > .frame {
+section#uxdesign > .intro .heinz > .frame {
   width: 527px;
+  outline: 1px solid #222;
 }
 @media screen and (max-width:640px) {
-  section#uxdesign > .intro .bus-alarm > .frame {
+  section#uxdesign > .intro .heinz > .frame {
     width: 90%;
     margin: 0 auto 10px;
   }
 }
-section#uxdesign > .intro .bus-alarm > .frame > img {
+section#uxdesign > .intro .heinz > .frame > img {
   display: block;
   width: 100%;
 }
@@ -1533,6 +1587,7 @@ section#uxdesign > .uxui > .container > .uxui-case > .ui-frame > img {
 }
 @media screen and (max-width:640px) {
   section#uxdesign > .uxui > .container > .uxui-case > .ui-frame > img {
+    height: 130px;
     border-radius: 150px 150px 0 0;
   }
 }
@@ -1563,6 +1618,7 @@ section#uxdesign > .uxui > .container > .uxui-case > .ux-frame > img {
 }
 @media screen and (max-width:640px) {
   section#uxdesign > .uxui > .container > .uxui-case > .ux-frame > img {
+    height: 130px;
     border-radius: 0 0 150px 150px;
   }
 }
@@ -1610,11 +1666,6 @@ section#uxdesign > .uxui > .container > .uxui-case > dl > dd {
   font-size: 13px;
   line-height: 24px;
 }
-@media screen and (max-width:640px) {
-  section#uxdesign > .uxui > .container > .uxui-case > dl > dd br {
-    display: none;
-  }
-}
 section#uxdesign > .uxui > .container > .uxui-case:nth-of-type(2) {
   margin-top: 30px;
 }
@@ -1629,14 +1680,6 @@ section#portfolio > h2:before {
   transform: translate(3px, 50px);
   color: #2C3E50;
   content: "PORTFOLIO";
-}
-@media screen and (max-width:640px) {
-  section#portfolio > h2:before {
-    left: -3px;
-    top: 0;
-    font-size: 38px;
-    line-height: 50px;
-  }
 }
 section#portfolio > article {
   width: 1200px;
@@ -1751,7 +1794,7 @@ section#portfolio > .slides > .slides-container > figure > figcaption {
   }
 }
 section#portfolio > .slides > .slides-container > figure > figcaption > h3 {
-  color: #daafff;
+  color: #2C3E50;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
@@ -1911,6 +1954,7 @@ section#portfolio > .intro .container {
 section#portfolio > .intro .container > h3 {
   position: relative;
   margin-bottom: 56px;
+  color: #2C3E50;
   font-size: 32px;
   text-align: center;
   font-weight: 500;
@@ -1979,6 +2023,7 @@ section#portfolio > .intro .container > .coding > h4 {
   position: relative;
   height: 300px;
   margin-bottom: 104px;
+  color: #2C3E50;
 }
 @media screen and (max-width:640px) {
   section#portfolio > .intro .container > .coding > h4 {
@@ -2097,6 +2142,7 @@ section#portfolio > .intro .container > .coding > div {
 }
 section#portfolio > .intro .container > .coding > div > h4 {
   padding: 30px 0;
+  color: #2C3E50;
   font-size: 32px;
 }
 @media screen and (max-width:640px) {
@@ -2195,6 +2241,7 @@ section#portfolio > .works > h3 {
   width: 300px;
   margin: 0 auto 56px;
   padding-bottom: 8px;
+  color: #2C3E50;
   font-weight: 500;
   font-size: 32px;
   text-align: center;
@@ -2236,7 +2283,7 @@ section#portfolio > .works > .slide-list > li {
 }
 section#portfolio > .works > .slide-list > li > h4 {
   padding-bottom: 36px;
-  color: #454249;
+  color: #2C3E50;
   font-weight: 500;
   font-size: 20px;
   text-align: center;
@@ -2270,11 +2317,12 @@ section#portfolio > .works > .slide-list > li > .btnShow {
   background-color: #daafff;
   border: 1px solid #daafff;
   border-radius: 5px;
-  box-shadow: inset 0 0 0 0 #454249;
+  box-shadow: inset 0 0 0 0 #fff;
   transition: ease-out 0.3s;
 }
 section#portfolio > .works > .slide-list > li > .btnShow:hover {
-  box-shadow: inset 180px 0 0 0 #454249;
+  color: #daafff;
+  box-shadow: inset 180px 0 0 0 #fff;
 }
 section#portfolio > .works > .slide-list > li > .frame {
   display: block;
@@ -2299,14 +2347,6 @@ section#contact > h2:before {
   color: #2C3E50;
   content: "CONTACT";
 }
-@media screen and (max-width:640px) {
-  section#contact > h2:before {
-    left: -3px;
-    top: 0;
-    font-size: 38px;
-    line-height: 50px;
-  }
-}
 section#contact > .apply {
   border: 1px solid #e4e4e4;
   border-radius: 5px;
@@ -2328,6 +2368,7 @@ section#contact > .apply > .help {
     position: initial;
     width: 90%;
     margin: 0 auto;
+    padding-bottom: 80px;
   }
 }
 section#contact > .apply > .help > h2 {
@@ -2341,6 +2382,8 @@ section#contact > .apply > .help > h2 {
 @media screen and (max-width:640px) {
   section#contact > .apply > .help > h2 {
     position: initial;
+    display: block;
+    margin-bottom: 20px;
     font-size: 28px;
   }
 }
@@ -2369,7 +2412,8 @@ section#contact > .apply > .help > p {
 @media screen and (max-width:640px) {
   section#contact > .apply > .help > p {
     position: initial;
-    margin-top: 10px;
+    display: block;
+    text-align: center;
   }
 }
 @media screen and (max-width:640px) {
@@ -2415,6 +2459,12 @@ section#contact > .apply > dl > dd {
   display: none;
   background-color: #f8f8f8;
 }
+section#contact > .apply > dl > dd:nth-of-type(1) > div > p:nth-of-type(1), section#contact > .apply > dl > dd:nth-of-type(1) > div > p:nth-of-type(2) {
+  margin-bottom: 20px;
+}
+section#contact > .apply > dl > dd:nth-of-type(2) > div > p:nth-of-type(1), section#contact > .apply > dl > dd:nth-of-type(2) > div > p:nth-of-type(2) {
+  margin-bottom: 20px;
+}
 section#contact > .apply > dl > dd > .answer {
   margin: 0 90px;
   padding: 40px 0;
@@ -2424,6 +2474,9 @@ section#contact > .apply > dl > dd > .answer {
     width: 90%;
     margin: 0 20px;
   }
+}
+section#contact > .apply > dl > dd > .answer > p {
+  line-height: 1.2em;
 }
 section#contact > .apply > p {
   display: flex;

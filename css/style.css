@@ -107,9 +107,10 @@
 #home {
   position: relative;
   background-image: url(./../images/visual-me.png);
-  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 #home:before {
   display: block;
@@ -535,19 +536,18 @@ section#aboutme > .container > .profile > div > .myphoto {
 }
 section#aboutme > .container > .profile > div > .myphoto > img {
   display: block;
-  height: 450px;
   position: relative;
   z-index: -1;
-  transform: translateX(-25%);
+  transform: translateX(-33%);
 }
 @media screen and (max-width:640px) {
   section#aboutme > .container > .profile > div > .myphoto > img {
-    transform: translateX(-10%);
+    transform: translateX(-21%);
   }
 }
 @media screen and (max-width:440px) {
   section#aboutme > .container > .profile > div > .myphoto > img {
-    transform: translateX(-25%);
+    transform: translateX(-33%);
   }
 }
 section#aboutme > .container > .profile > div > ol {

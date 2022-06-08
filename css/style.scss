@@ -70,9 +70,10 @@ $iphone : "screen and (max-width:440px)";
   position: relative;
   //height: 500px; js에서 동적으로 설정
   background-image: url(./../images/visual-me.png);
-  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 
   &:before{
     display: block;
@@ -577,18 +578,16 @@ section#aboutme{
 
           >img{
             display: block;
-            height: 450px;
             position: relative;
             z-index: -1;//-1값 설정시 가장 아래 바닥으로 깔린다.
-            transform: translateX(-25%);
-            // margin-left: -370px;
+            transform: translateX(-33%);
 
             @media #{$mobile} {
-              transform: translateX(-10%);
+              transform: translateX(-21%);
             }
 
             @media #{$iphone}{
-              transform: translateX(-25%);
+              transform: translateX(-33%);
             }
           }
         }//end of .myphoto

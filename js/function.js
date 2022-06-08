@@ -315,6 +315,7 @@ $(function(){
 		});
 
 	} else {
+		currentShow().hide();
 
 		// 다음버튼 클릭 evt
 		$talkNext.on('click', function(evt){

@@ -714,9 +714,12 @@ section#aboutme > .workstyle > .container > p.after {
   top: 60px;
 }
 section#aboutme > .talk {
+  width: 100%;
   background-image: url(./../images/aboutme/bg_talk.jpg);
   background-size: cover;
-  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 section#aboutme > .talk > h3 {
   text-indent: -99999px;
@@ -725,7 +728,13 @@ section#aboutme > .talk .screen {
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 620px;
+  height: 680px;
+  margin: 0 auto;
+}
+@media screen and (max-width:640px) {
+  section#aboutme > .talk .screen {
+    width: 450px;
+  }
 }
 section#aboutme > .talk .screen > h3 {
   display: block;
@@ -744,159 +753,129 @@ section#aboutme > .talk .screen > h3 {
   background-position: center center;
 }
 section#aboutme > .talk .screen > .talk__container {
-  position: absolute;
-  left: 0;
-  top: 100px;
   display: flex;
-  width: 200%;
-}
-section#aboutme > .talk .screen > .talk__container > li {
-  width: 200%;
-  padding-bottom: 20px;
+  justify-content: center;
+  position: absolute;
+  left: -330px;
+  top: 100px;
+  width: 2630px;
+  margin: 40px auto;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk .screen > .talk__container > li {
-    display: block;
-    width: 95%;
+  section#aboutme > .talk .screen > .talk__container {
+    width: 2630px;
     margin: 0 auto;
   }
 }
-section#aboutme > .talk .screen > .talk__container > li ol {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  height: 450px;
-  min-width: 155px;
-  min-height: 400px;
-  box-sizing: border-box;
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(1) > h4:after {
-  background-position: 55% -170px;
-  background-size: 300%;
-  background-image: url(../images/aboutme/friend-1.jpg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(2) > h4:after {
-  background-position: -25px 0;
-  background-image: url(../images/aboutme/friend-2.jpeg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(3) > h4:after {
-  background-size: 100%;
-  background-position: 0 0;
-  background-image: url(../images/aboutme/friend-3.jpg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_1 > li:nth-child(4) > h4:after {
-  background-position: center -30px;
-  background-image: url(../images/aboutme/friend-4.jpg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(1) > h4:after {
-  background-size: 200%;
-  background-position: center -80px;
-  background-image: url(../images/aboutme/friend-5.jpg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(2) > h4:after {
-  background-position: 0 -20px;
-  background-image: url(../images/aboutme/friend-6.jpg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(3) > h4:after {
-  background-position: 0 0;
-  background-image: url(../images/aboutme/friend-7.jpg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol.inner_2 > li:nth-child(4) > h4:after {
-  background-size: 200%;
-  background-position: 0 -150px;
-  background-image: url(../images/aboutme/friend-8.jpg);
-}
-section#aboutme > .talk .screen > .talk__container > li ol > li {
+section#aboutme > .talk .screen > .talk__container > li {
   position: relative;
   /*기준점 설정*/
-  width: 25%;
+  flex-grow: 1;
+  width: 320px;
   height: 450px;
-  margin-bottom: 20px;
-  padding: 0 2%;
+  margin-right: 10px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #222;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all 0.35s;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk .screen > .talk__container > li ol > li {
-    width: 100%;
+  section#aboutme > .talk .screen > .talk__container > li {
     min-height: 450px;
-    padding: 0 10%;
+    flex-shrink: 0;
+    padding: 0;
     box-shadow: 0 0 10px rgba(14, 14, 14, 0.5);
   }
 }
-section#aboutme > .talk .screen > .talk__container > li ol > li > h4 {
+section#aboutme > .talk .screen > .talk__container > li.on {
+  position: relative;
+  z-index: 100;
+  margin-left: -50px;
+  transform: scale(1.2);
+}
+section#aboutme > .talk .screen > .talk__container > li.on + li {
+  margin-left: -50px;
+}
+@media screen and (max-width:640px) {
+  section#aboutme > .talk .screen > .talk__container > li.on + li {
+    margin: 0;
+  }
+}
+@media screen and (max-width:640px) {
+  section#aboutme > .talk .screen > .talk__container > li.on {
+    display: none;
+  }
+}
+section#aboutme > .talk .screen > .talk__container > li > img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 30px auto;
+}
+section#aboutme > .talk .screen > .talk__container > li > h4 {
   position: absolute;
   left: 50%;
   top: 140px;
+  z-index: -1;
   margin-left: 30px;
   padding: 5px 10px 5px 30px;
   color: #fff;
   letter-spacing: 3px;
+  text-align: center;
   /*자동줄바꿈 안됨*/
   white-space: nowrap;
   background-color: #daafff;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk .screen > .talk__container > li ol > li > h4 {
+  section#aboutme > .talk .screen > .talk__container > li > h4 {
     top: initial;
     bottom: 15px;
+    z-index: inherit;
     margin-left: -30px;
     padding: 5px 10px;
     letter-spacing: 5px;
     text-indent: 5px;
   }
 }
-section#aboutme > .talk .screen > .talk__container > li ol > li > h4:after {
+section#aboutme > .talk .screen > .talk__container > li > span {
   display: block;
-  position: absolute;
-  left: -105px;
-  top: -115px;
-  width: 150px;
-  height: 150px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  content: "";
-}
-@media screen and (max-width:640px) {
-  section#aboutme > .talk .screen > .talk__container > li ol > li > h4:after {
-    top: -370px;
-    left: -50px;
-  }
-}
-section#aboutme > .talk .screen > .talk__container > li ol > li > strong {
-  display: block;
-  margin: 180px 0 30px;
-  font-size: 15px;
+  margin: 30px 0;
   text-align: center;
+}
+section#aboutme > .talk .screen > .talk__container > li > span > strong {
+  font-size: 15px;
   /* 한줄로 처리하는 CSS구문 3종세트*/
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk .screen > .talk__container > li ol > li > strong {
+  section#aboutme > .talk .screen > .talk__container > li > span > strong {
     margin: 210px 0 30px;
   }
 }
-section#aboutme > .talk .screen > .talk__container > li ol > li > p {
+section#aboutme > .talk .screen > .talk__container > li > span + p {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;
-  height: 180px;
+  width: 310px;
+  height: 120px;
   overflow: scroll;
   overflow-x: hidden;
   -ms-overflow-style: none;
   line-height: 1.8;
   text-align: center;
 }
-section#aboutme > .talk .screen > .talk__container > li ol > li > p::-webkit-scrollbar {
+section#aboutme > .talk .screen > .talk__container > li > span + p::-webkit-scrollbar {
   display: none;
 }
 @media screen and (max-width:640px) {
-  section#aboutme > .talk .screen > .talk__container > li ol > li > p > br {
+  section#aboutme > .talk .screen > .talk__container > li > span + p {
+    height: 120px;
+  }
+}
+@media screen and (max-width:640px) {
+  section#aboutme > .talk .screen > .talk__container > li > span + p > br {
     display: none;
   }
 }

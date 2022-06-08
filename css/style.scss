@@ -728,32 +728,6 @@ section#aboutme{
           padding-top: 15px;
         }
 
-
-        // &:before{
-        //   display: block;
-        //   width: 100%;
-        //   left: 80%;
-        //   top: 20px;
-        //   letter-spacing: 0.1em;
-        //   content: '하는';
-        //   transform: ease-in-out .35s;
-        // }
-
-        // &:after{
-        //   display: block;
-        //   width: 100%;
-        //   left: 200%;
-        //   top: 60px;
-        //   text-align: right;
-        //   letter-spacing: 0.1em;
-        //   content: '코딩 스타일을 좋아해요-♡';
-        //   transition: ease-in-out .35s;
-
-        //   @media #{$mobile}{
-        //     display: none;
-        //   }
-        // }
-
         > li {
           color: #fff;
           font-weight: 400;
@@ -802,12 +776,12 @@ section#aboutme{
   }//end of workstyle
 
   > .talk {
-    // position: relative;
-    // width: calc(25% * 8);
-    // height: auto;
+    width: 100%;
     background-image: url(./../images/aboutme/bg_talk.jpg);
     background-size: cover;
-    background-position: 0 center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 
     > h3{
       text-indent: -99999px;
@@ -817,7 +791,12 @@ section#aboutme{
       overflow: hidden;
       position: relative;
       width: 100%;
-      height: 620px;
+      height: 680px;
+      margin: 0 auto;
+
+      @media #{$mobile}{
+        width: 450px;
+      }
 
       > h3 {
         display: block;
@@ -838,199 +817,146 @@ section#aboutme{
       }
 
       > .talk__container {
-        position: absolute;
-        left: 0;
-        top: 100px;
         display: flex;
-        width: calc(25% * 8);
+        justify-content: center;
+        position: absolute;
+        left: -330px;
+        top: 100px;
+        width: calc(320px * 8 + 70px);
+        margin: 40px auto;
+
+        @media #{$mobile}{
+          width: calc(320px * 8 + 70px);
+          // left: -125%;
+          margin: 0 auto;
+        }
         
         > li{
-
-          width: calc(100% * 2);
-          padding-bottom: 20px;
+          position: relative;
+          /*기준점 설정*/
+          flex-grow: 1;
+          width: 320px;
+          height: 450px;
+          margin-right: 10px;
+          background-color: #fff;
+          border: 1px solid #222;
+          border-radius: 10px;
+          box-sizing: border-box;
+          transition: all 0.35s;
 
           @media #{$mobile}{
-            display: block;
-            width: 95%;
-            margin : 0 auto;
+            // width: 100%;
+            min-height: 450px; 
+            flex-shrink: 0;
+            padding: 0; 
+            box-shadow: 0 0 10px rgba(14,14,14,0.5);
           }
 
-          ol {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: space-evenly;
-            -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-            
-            width: 100%;
-            height: 450px;
-            min-width: 155px;
-            min-height: 400px;
+          // &:last-child{
+          //   margin-right: 0;
+          // }
 
-            -webkit-box-sizing: border-box;
-                    box-sizing: border-box;
+          &.on{
+            //prve 버튼 클릭시 자연스러운 효과를 위해 필요
+            position: relative;
+            z-index: 100;
+            margin-left: -50px;//카드가 겹쳐지는 폭을 50px로 정함
+            transform: scale(1.2);
 
-            &.inner_1 > li{
-              &:nth-child(1) > h4:after {
-                background-position: 55% -170px;
-                background-size: 300%;
-                background-image: url(../images/aboutme/friend-1.jpg);
-              }
-      
-              &:nth-child(2) > h4:after {
-                background-position: -25px 0;
-                background-image: url(../images/aboutme/friend-2.jpeg);
-              }
-      
-              &:nth-child(3) > h4:after {
-                background-size: 100%;
-                background-position: 0 0;
-                background-image: url(../images/aboutme/friend-3.jpg);
-              }
-    
-              &:nth-child(4) > h4:after {
-                background-position: center -30px;
-                background-image: url(../images/aboutme/friend-4.jpg);
-              }
-              }
-              
-            &.inner_2 > li {
-              &:nth-child(1) > h4:after {
-                background-size: 200%;
-                background-position: center -80px;
-                background-image: url(../images/aboutme/friend-5.jpg);
-              }
-    
-              &:nth-child(2) > h4:after {
-                background-position: 0 -20px;
-                background-image: url(../images/aboutme/friend-6.jpg);
-              }
-    
-              &:nth-child(3) > h4:after {
-                background-position: 0 0;
-                background-image: url(../images/aboutme/friend-7.jpg);
-              }
-              
-              &:nth-child(4) > h4:after {
-                background-size: 200%;
-                background-position: 0 -150px;
-                background-image: url(../images/aboutme/friend-8.jpg);
-            }
-          }
-    
-            > li{
-              position: relative;
-              /*기준점 설정*/
-
-              width: 25%;
-              height: 450px;
-              margin-bottom: 20px;
-              padding: 0 2%;
-
-              background-color: #fff;
-              border: 1px solid #ccc;
-              border-radius: 4px;
+            &+li{
+              margin-left: -50px;
 
               @media #{$mobile}{
-                width:100%;
-                min-height:450px; 
-                padding:0 10%; 
-                box-shadow: 0 0 10px rgba(14,14,14,0.5);
-              }
-
-              > h4 {
-                position: absolute;
-                left: 50%;
-                top: 140px;
-                margin-left: 30px;
-                padding: 5px 10px 5px 30px;
-                color: #fff;
-                letter-spacing: 3px;
-      
-                /*자동줄바꿈 안됨*/
-                white-space: nowrap;
-      
-                background-color: $pri-color;
-      
-                @media #{$mobile}{
-                  top:initial;
-                  bottom:15px;
-                  margin-left:-30px; 
-                  padding:5px 10px; 
-                  letter-spacing:5px;
-                  text-indent:5px;
-                }
-      
-                &:after {
-                  display: block;
-                  position: absolute;
-                  left: -105px;
-                  top: -115px;
-                  width: 150px;
-                  height: 150px;
-                  background-size: cover;
-                  background-repeat: no-repeat;
-                  border-radius: 50%;
-                  content: '';
-      
-                  @media #{$mobile}{
-                    top:-370px;
-                    left:-50px;
-                  }            
-                }
-              }
-      
-
-      
-              > strong {
-                display: block;
-                margin: 180px 0 30px;
-                font-size: 15px;
-                text-align: center;
-      
-                /* 한줄로 처리하는 CSS구문 3종세트*/
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-      
-                @media #{$mobile}{
-                  margin : 210px 0 30px;
-                }
-              }
-      
-              > p {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 320px;
-                height: 180px;
-                // padding: 10px;
-                overflow: scroll;
-                overflow-x: hidden;
-                // background-color: #ff0;
-                -ms-overflow-style: none;
-                line-height: 1.8;
-                text-align: center;
-                
-                &::-webkit-scrollbar { 
-                  display: none; 
-                }
-
-                > br{
-                  @media #{$mobile}{
-                    display: none;
-                  }
-                }
+                margin: 0;
               }
             }
-    
+
+            @media #{$mobile}{
+              display: none;
+            }
+          }
+
+          > img{
+            display: block;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 30px auto;
+          }
+
+          > h4{
+            position: absolute;
+            left: 50%;
+            top: 140px;
+            z-index: -1;
+            margin-left: 30px;
+            padding: 5px 10px 5px 30px;
+            color: #fff;
+            letter-spacing: 3px;
+            text-align: center;
+
+            /*자동줄바꿈 안됨*/
+            white-space: nowrap;
+            
+            background-color: $pri-color;
+            
+            @media #{$mobile}{
+              top: initial;
+              bottom: 15px;
+              z-index: inherit;
+              margin-left:-30px; 
+              padding: 5px 10px; 
+              letter-spacing: 5px;
+              text-indent: 5px;
+            }
+            
+
+          }
+
+        > span{
+          display: block;
+          margin: 30px 0;
+          text-align: center;
+          > strong {
+            font-size: 15px;
+
+            /* 한줄로 처리하는 CSS구문 3종세트*/
+            white-space: nowrap;
   
+            @media #{$mobile}{
+              margin : 210px 0 30px;
+            }
+          }
+
+          &+p{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 310px;
+            height: 120px;
+            overflow: scroll;
+            overflow-x: hidden;
+            -ms-overflow-style: none;
+            line-height: 1.8;
+            text-align: center;
+            
+            &::-webkit-scrollbar { 
+              display: none; 
+            }
+
+            @media #{$mobile}{
+              height: 120px;
+            }
+
+            > br{
+              @media #{$mobile}{
+                display: none;
+              }
+            }
           }
         }
-  
-
-      }//end of ul
+      }
+    }// end of .talk__container
   
       > a{
         display: block;
@@ -1065,6 +991,7 @@ section#aboutme{
           line-height: 80px;
         }
       }
+      
     }// end of .screen
   }//end of .talk
 }//end of #about

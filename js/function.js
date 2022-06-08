@@ -94,6 +94,7 @@ $(function() {
 	}); //end of scroll
 });
 
+//스크롤
 $(function(){
 
 	$(window).on("scroll", function(){
@@ -218,41 +219,107 @@ $(function(){
 // talk 영역의 slides
 $(function(){
 	const $talk_container = $('.talk__container');
+	const $slides = $talk_container.children('li');
 	const $talkNext = $('.screen .talk-next');
 	const $talkPrev = $('.screen .talk-prev');
-	// const $screens = $('.talk__container>li'); //li 2개
 
-	let showIdx = 0;
+	let showIdx = 3;
+	let slideIdx = 0;
 	let lock = false;
 
+	// PC
 	// 다음 슬라이드 인덱스 추출 함수 선언
 	const nextIdx = function() {
-		if (showIdx < 1) {
+		if (showIdx < 7) {
 			showIdx++;
 		} else {
 			showIdx = 0;
 		}
 	};
 
+	// 활성카드
+	const currentShow = function() {
+		$slides.removeClass('on').eq(showIdx).addClass('on')
+	};
+
 		// 다음 슬라이드 장면 animaite 함수 선언
 		const nextPlay = function() {
 			$talk_container.stop().animate({
-				left: '-100%'
-				// left: -100%; 이므로
+				left: -660
 			}, 400, "easeInOutCubic", function() {
 				
 				//맨 앞의 한장을 컨테이너의 맨뒤로 appendTo()
 				$('.talk__container > li').first().appendTo($talk_container);
 				$talk_container.css({ 
-					left: 0 
+					left: -330
 				});
 			});
 	}
 
+	// 이전 슬라이드 인덱스 추출 함수 선언
+	const prevIdx = function() {
+		if (showIdx > 0) {
+			showIdx--;
+		} else {
+			showIdx = 7;
+		}
+	};
+
+	// 이전 슬라이드 장면 animaite 함수 선언
+	const prevPlay = function() {
+		$talk_container.stop().animate({ 
+			left: 0
+		}, 400, "easeInOutCubic", function() {
+			//맨 뒤의 한장을 컨테이너의 맨앞으로 이동
+			$('.talk__container > li').last().prependTo($talk_container);
+			$talk_container.css({ 
+				left: -330
+			});
+		});
+	};
+
+	// mobile
+	// 다음 슬라이드 인덱스 추출 함수 선언
+
+
+	if ($(window).width() > 640) {
+
 		// 다음버튼 클릭 evt
 		$talkNext.on('click', function(evt){
+			evt.preventDefault();
+			if(lock===false){ 
+				lock = true;
 
-			if(lock===false){
+				nextIdx();
+				currentShow();
+				nextPlay();
+
+				lock = false;
+			}
+		});
+
+		// 이전버튼 클릭 evt
+		$talkPrev.on('click', function(evt){
+			$('#talkNext').off('click');
+			evt.preventDefault();
+			
+			if(lock===false){ 
+				lock = true;
+
+				prevIdx();
+				currentShow();
+				prevPlay();
+
+				lock = false;
+			}
+		});
+
+	} else {
+
+		// 다음버튼 클릭 evt
+		$talkNext.on('click', function(evt){
+			evt.preventDefault();
+			if(lock===false){ 
 				lock = true;
 
 				nextIdx();
@@ -260,37 +327,14 @@ $(function(){
 
 				lock = false;
 			}
-			evt.preventDefault();
 		});
-		
-		// 이전 슬라이드 인덱스 추출 함수 선언
-		const prevIdx = function() {
-			if (showIdx > 0) {
-				showIdx--;
-			} else {
-				showIdx = 1;
-			}
-		}
-
-		// 이전 슬라이드 장면 animaite 함수 선언
-		const prevPlay = function() {
-			$talk_container.stop().animate({ 
-				left: '-100%'
-				// left: 0; 이므로
-			}, 400, "easeInOutCubic", function() {
-				//맨 뒤의 한장을 컨테이너의 맨앞으로 이동
-				$('.talk__container > li').last().prependTo($talk_container);
-				$talk_container.css({ 
-					left: 0 
-				});
-			});
-			}
-
 
 		// 이전버튼 클릭 evt
 		$talkPrev.on('click', function(evt){
 			$('#talkNext').off('click');
-			if(lock===false){
+			evt.preventDefault();
+			
+			if(lock===false){ 
 				lock = true;
 
 				prevIdx();
@@ -298,9 +342,9 @@ $(function(){
 
 				lock = false;
 			}
-
-			evt.preventDefault();
 		});
+
+	}
 
 });
 

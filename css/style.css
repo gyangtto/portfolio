@@ -736,6 +736,11 @@ section#aboutme > .talk .screen {
     width: 450px;
   }
 }
+@media screen and (max-width:440px) {
+  section#aboutme > .talk .screen {
+    width: 100%;
+  }
+}
 section#aboutme > .talk .screen > h3 {
   display: block;
   position: absolute;
@@ -764,6 +769,13 @@ section#aboutme > .talk .screen > .talk__container {
 @media screen and (max-width:640px) {
   section#aboutme > .talk .screen > .talk__container {
     width: 2630px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width:440px) {
+  section#aboutme > .talk .screen > .talk__container {
+    width: 2630px;
+    left: -500px;
     margin: 0 auto;
   }
 }
@@ -890,8 +902,18 @@ section#aboutme > .talk .screen > a {
 section#aboutme > .talk .screen > a.talk-prev {
   left: 0;
 }
+@media screen and (max-width:440px) {
+  section#aboutme > .talk .screen > a.talk-prev {
+    z-index: 1000;
+  }
+}
 section#aboutme > .talk .screen > a.talk-next {
   right: 0;
+}
+@media screen and (max-width:440px) {
+  section#aboutme > .talk .screen > a.talk-next {
+    z-index: 1000;
+  }
 }
 section#aboutme > .talk .screen > a:hover > i {
   color: #daafff;

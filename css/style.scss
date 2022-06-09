@@ -797,6 +797,10 @@ section#aboutme{
         width: 450px;
       }
 
+      @media #{$iphone}{
+        width: 100%;
+      }
+
       > h3 {
         display: block;
         position: absolute;
@@ -827,6 +831,12 @@ section#aboutme{
         @media #{$mobile}{
           width: calc(320px * 8 + 70px);
           // left: -125%;
+          margin: 0 auto;
+        }
+
+        @media #{$iphone}{
+          width: calc(320px * 8 + 70px);
+          left: -500px;
           margin: 0 auto;
         }
         
@@ -968,10 +978,18 @@ section#aboutme{
   
         &.talk-prev{
           left: 0;
+
+          @media #{$iphone}{
+            z-index: 1000;
+          }
         }
   
         &.talk-next{
           right: 0;
+
+          @media #{$iphone}{
+            z-index: 1000;
+          }
         }
   
         &:hover{

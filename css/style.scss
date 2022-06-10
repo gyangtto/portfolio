@@ -24,7 +24,7 @@ $point-color : #D0E4FF;
 
 //문자열변수
 $mobile : "screen and (max-width:640px)";
-$iphone : "screen and (max-width:440px)";
+$iphone : "screen and (max-width:390px)";
 
 #wrap{
   overflow-x: hidden;
@@ -56,7 +56,7 @@ $iphone : "screen and (max-width:440px)";
     }
   }
 
-  >h1{
+  > h1{
     position: absolute;
     left: 50%;
     // top: 160px;
@@ -64,7 +64,7 @@ $iphone : "screen and (max-width:440px)";
     font-size: 24px;
     z-index: 100;
   }
-}
+}//end of #wrap
 
 #home{
   position: relative;
@@ -74,6 +74,10 @@ $iphone : "screen and (max-width:440px)";
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+
+  @media #{$mobile}{
+    background-attachment: local, scroll;
+  }
 
   &:before{
     display: block;
@@ -178,45 +182,9 @@ $iphone : "screen and (max-width:440px)";
       }
     }
 
-    // >.myico{
-    //   display: flex;
-    //   justify-content: space-between;
-    //   width: 320px;
-    //   margin: 40px auto 0;
-
-    //   @media #{$mobile}{
-    //     margin-top: 40px;
-    //   }   
-
-    //   >span{
-    //     display: block;
-    //     width: 40px;
-    //     border: 1px solid #fff;
-    //     border-radius: 3px;
-    //     transform: rotate(45deg);
-    //     transition: all 0.4s;
-
-    //     &:hover{
-    //       background-color: $pri-color;
-    //       border-color: transparent;
-    //       cursor: pointer;
-    //     }
-
-    //     >i{
-    //       display: block;
-    //       height: 40px;
-    //       color: #fff;
-    //       font-size: 18px;
-    //       line-height: 40px;
-    //       text-align: center;
-    //       transform: rotate(-45deg);
-    //     }
-    //   }//end of span
-    // }//end of .myico
-
   }//end of .intro
 
-  >.mouse{
+  > .mouse{
     position: absolute;
     left: 50%;
     bottom: 40px;
@@ -231,7 +199,7 @@ $iphone : "screen and (max-width:440px)";
       display: none;
     }
   
-    >.wheel{
+    > .wheel{
       position: absolute;
       left: 50%;
       top: 10px;
@@ -247,7 +215,6 @@ $iphone : "screen and (max-width:440px)";
   }//end of .mouse
 }//end of #home
 
-
 header{
   position: relative;
   z-index: 1000;
@@ -261,7 +228,6 @@ header{
     top: 0;
   }
 
-
   &:after{
     display: block;
     position: absolute;
@@ -273,7 +239,7 @@ header{
     content: '';
   }
 
-  >.container{
+  > .container{
     position: relative;
     height: 66px;
     // background-color: pink;
@@ -517,19 +483,16 @@ header~section{
 }//end of header~section
 
 section#aboutme{
-
   > h2{
-
     &:before{
       display: block;
       transform: translate(3px, 50px);
       color: $weight-color;
       content: 'ABOUT ME';
     } 
-
   }
 
-  >.container{
+  > .container{
     display: flex;
     flex-flow: row-reverse nowrap;
     padding-bottom: 30px;
@@ -801,7 +764,7 @@ section#aboutme{
         width: 100%;
       }
 
-      > h3 {
+      > h3{
         display: block;
         position: absolute;
         top: 20px;
@@ -819,7 +782,7 @@ section#aboutme{
         background-position: center center;
       }
 
-      > .talk__container {
+      > .talk__container{
         display: flex;
         justify-content: center;
         position: absolute;
@@ -965,7 +928,7 @@ section#aboutme{
           }
         }
       }
-    }// end of .talk__container
+      }// end of .talk__container
   
       > a{
         display: block;
@@ -992,39 +955,30 @@ section#aboutme{
           }
         }
   
-        &:hover{
-          // background-color: #f4ffaf50;
-          // border-radius: 40px;
-  
-          > i {
-            color: $pri-color;
-          }
+        &:hover > i{
+          color: $pri-color;
         }
   
-        > i {
+        > i{
           color: $weight-color;
           font-size: 50px;
           text-align: center;
           line-height: 80px;
         }
       }
-      
-    }// end of .screen
+    }//end of .screen
   }//end of .talk
 }//end of #about
 
-
 section#skill{
-  > h2{
-    &:before{
-      display: block;
-      transform: translate(3px, 50px);
-      color: $weight-color;
-      content: 'SKILL';
-    } 
-  }
+  > h2:before{
+    display: block;
+    transform: translate(3px, 50px);
+    color: $weight-color;
+    content: 'SKILL';
+  } 
   
-  >article{
+  > article{
     &.skill-1{
       margin-bottom: 120px;
 
@@ -1033,15 +987,48 @@ section#skill{
         padding: 40px 0;
         border: 1px solid #eee;
       }
-    }
+
+      & li:first-child {
+        transform: translateX(140px);
+        background-image: url(./../images/skill/skill01.png);
+        // background-position: 180px 0;
+  
+        @media #{$mobile}{
+          // padding-left: 180px;
+          background-position: -30px 0;
+          transform: translateX(0);
+        }
+      }
+
+      & li:last-child {
+        background-image: url(./../images/skill/skill02.png);
+      }
+    }//end of .skill-1
 
     &.skill-2{
       @media #{$mobile}{
         padding-top: 40px;
       }
-    } 
 
-    > h3 {
+      & li:first-child {
+        transform: translateX(180px);
+        // padding-left: 360px;
+        background-image: url(./../images/skill/skill03.png);
+        // background-position: 180px 0;
+        
+        @media #{$mobile}{
+          // padding-left: 180px;
+          background-position: 0 0;
+          transform: translateX(0);
+        }
+      }
+
+      & li:last-child {
+        background-image: url(./../images/skill/skill04.png);
+      }
+    }//end of .skill-2
+
+    > h3{
       margin-bottom: 80px;
       font-weight: 400;
       font-size: 28px;
@@ -1052,12 +1039,12 @@ section#skill{
         margin-bottom: 40px;
       }
 
-      > span {
+      > span{
         display: block;
       }
-    }//end of h3
+    }
 
-    > ol {
+    > ol{
       display: flex;
       justify-content: space-between;
       width: 100%;
@@ -1084,68 +1071,31 @@ section#skill{
         }
 
         &:first-child{
-          
           @media #{$mobile}{
             margin-bottom: 40px;
           }
         }
 
-        > h4 {
+        > h4{
           margin-bottom: 30px;
           font-weight: 400;
           font-size: 20px;
         }
 
-        > p {
+        > p{
           line-height: 1.6;
         }
-
-      }//end of li
-    }//end of  ol
-
-    &.skill-1 li:first-child {
-      transform: translateX(140px);
-      background-image: url(./../images/skill/skill01.png);
-      // background-position: 180px 0;
-
-      @media #{$mobile}{
-        // padding-left: 180px;
-        background-position: -30px 0;
-        transform: translateX(0);
       }
-    }
-
-    &.skill-1 li:last-child {
-      background-image: url(./../images/skill/skill02.png);
-    }
-
-    &.skill-2 li:first-child {
-      transform: translateX(180px);
-      // padding-left: 360px;
-      background-image: url(./../images/skill/skill03.png);
-      // background-position: 180px 0;
-      
-      @media #{$mobile}{
-        // padding-left: 180px;
-        background-position: 0 0;
-        transform: translateX(0);
-      }
-    }
-
-    &.skill-2 li:last-child {
-      background-image: url(./../images/skill/skill04.png);
-    }
+    }//end of ol
   }//end of article
-
 }//end of #skill
-
 
 section#ability{
   margin-top: 100px;
   // padding-top: 70px;
   background-color: #222;
   
-  >h2{
+  > h2{
     color: #222;
     text-shadow: -1px 0 $sec-color, 0 1px $sec-color, 1px 0 $sec-color, 0 -1px $sec-color;
 
@@ -1157,10 +1107,10 @@ section#ability{
     } 
   }
 
-  >.ability-container{
+  > .ability-container{
     padding-bottom: 50px;
 
-    >.stick {
+    > .stick {
       display: flex;
       justify-content: space-around;
 
@@ -1168,7 +1118,7 @@ section#ability{
         display: block;
       }
 
-      >.stick-container {
+      > .stick-container {
         width: 43%;
 
         @media #{$mobile}{
@@ -1219,14 +1169,13 @@ section#ability{
                 top: -20px;
                 right: 15px;
               }
-            }//end of .bar
+            }
           }//end of .progress
         }//end of .item
-        
       }//end of .stick-container
     }//end of .stick
 
-    >.piechart {
+    > .piechart {
       display: flex;
       justify-content: space-around;
       margin-top: 40px;
@@ -1240,43 +1189,44 @@ section#ability{
         width: 140px;
         height: 200px;
 
-        > .chart {
+        > .chart{
           position: relative;
           width: 140px;
           height: 140px;
           text-align: center;
 
-          canvas {
+          canvas{
             position: absolute;
             left: 0;
             top: 0;
           }
 
-          > .percent {
+          > .percent{
             color: #fff;
             font-weight: 500;
             font-size: 25px;
             line-height: 140px;
 
-            &:after {
+            &:after{
               content: '%';
             }
-          }//end of .percent
+          }
 
-          > .tit {
+          > .tit{
             height: 60px;
             color: $sec-color;
             font-size: 18px;
             line-height: 60px;
           }
-        }//end of .chart
+        }
       }//end of .item
-    }//end of piechart
+    }//end of .piechart
   }//end of .container
 
-  >.resume{
+  > .resume{
     padding: 50px 0;
     background-color: #fff;
+
     @media #{$mobile}{
       padding-bottom: 0;
     }
@@ -1310,7 +1260,7 @@ section#ability{
           width: 100%;
           box-shadow: 1px 1px 5px #ccc;
         }
-      }
+      }//end of .frame
 
       > .iam {
         display: flex;
@@ -1389,7 +1339,6 @@ section#ability{
   }//end of resume
 }//end of #ability
 
-
 section#uxdesign{
   width: 1200px;
   margin: 0 auto;
@@ -1399,17 +1348,14 @@ section#uxdesign{
     margin: 0;
   }
 
-  > h2{
-    &:before{
-      display: block;
-      transform: translate(3px, 50px);
-      color: $weight-color;
-      content: 'UX DESIGN';
-    } 
+  > h2:before{
+    display: block;
+    transform: translate(3px, 50px);
+    color: $weight-color;
+    content: 'UX DESIGN';
+  } 
 
-  }
-
-  > .slides {
+  > .slides{
     overflow: hidden;
     position: relative;
     height: 440px;
@@ -1419,14 +1365,14 @@ section#uxdesign{
       height: 300px;
     }
 
-    > .slides-container {
+    > .slides-container{
       display: flex;
       position: absolute;
       left: 0;
       top: 0;
       width: 400%;
 
-      > li {
+      > li{
         // width: 1100px;
         width: 100%;
         height: 440px;
@@ -1434,7 +1380,7 @@ section#uxdesign{
         background-position: center center;
         background-size: cover;
 
-        &.banner_1 {
+        &.banner_1{
           background-image: url(../images/uxdesign/slides/slide_1.png);
 
           @media #{$mobile}{
@@ -1442,8 +1388,9 @@ section#uxdesign{
           }
         }        
 
-        &.banner_2 {
+        &.banner_2{
           background-image: url(../images/uxdesign/slides/slide_2.jpg);
+
           @media #{$mobile}{
             background-image: url(../images/uxdesign/slides/rwd_slide_2.png);
           }
@@ -1463,7 +1410,7 @@ section#uxdesign{
           }
         }
 
-      }//end of li
+      }
     }//end of .slides-container
 
     > .slides-pagination {
@@ -1524,25 +1471,17 @@ section#uxdesign{
     }
   }//end of .slides
 
-  > .intro {
+  > .intro{
     padding: 80px 0 104px;
 
-    > h3 {
+    > h3{
       position: relative;
       margin-bottom: 56px;
       font-size: 32px;
       text-align: center;
       font-weight: 500;
 
-      @media #{$mobile}{
-        >span{
-          display: block;
-          height: 0;
-          text-indent: -9999px;
-        }    
-      }
-
-      &:before {
+      &:before{
         display: block;
         position: absolute;
         left: 0;
@@ -1553,7 +1492,7 @@ section#uxdesign{
         content: '';
       }
 
-      &:after {
+      &:after{
         display: block;
         position: absolute;
         right: 0;
@@ -1566,24 +1505,31 @@ section#uxdesign{
 
       @media #{$mobile}{
         &:before,
-        &:after{display: none;}    
+        &:after{display: none;}
+
+        > span{
+          display: block;
+          height: 0;
+          text-indent: -9999px;
+        }    
       }
     }//end of h3
 
-    > p {
+    > p{
       width: 664px;
       margin: 0 auto 80px;
       line-height: 30px;
-
 
       @media #{$mobile}{
         width: 90%;
         margin-bottom: 30px;
 
-        br{display: none;}
+        br{
+          display: none;
+        }
       }
 
-      > span {
+      > span{
         display: block;
         
         &:nth-of-type(1){
@@ -1595,19 +1541,19 @@ section#uxdesign{
         }
       }
 
-      > strong {
+      > strong{
         font-weight: 400;
       }
     }//end of p
 
-    .heinz {
+    .heinz{
       display: flex;
 
       @media #{$mobile}{
         flex-direction: column-reverse;
       }
 
-      > h4 {
+      > h4{
         width: 43%;
         align-self: flex-end;
         text-align: right;
@@ -1620,13 +1566,13 @@ section#uxdesign{
         }
       }
 
-      > .frame {
+      > .frame{
         width: 527px;
         outline: 1px solid #222;
 
         @media #{$mobile}{
-            width: 90%;
-            margin: 0 auto 10px;
+          width: 90%;
+          margin: 0 auto 10px;
         }
 
         > img {
@@ -1634,10 +1580,10 @@ section#uxdesign{
           width: 100%;
         }
       }
-    }//end of .bus-alarm
+    }//end of .heinz
   }//end of .intro
 
-  > .uxui {
+  > .uxui{
     width: 1200px;
     position: relative;
     padding-bottom: 104px;
@@ -1646,7 +1592,7 @@ section#uxdesign{
       width: 100%;
     }  
 
-    > h3 {
+    > h3{
       position: relative;
       width: 330px;
       margin: 0 auto 156px;
@@ -1654,7 +1600,6 @@ section#uxdesign{
       font-weight: 500;
       font-size: 32px;
       text-align: center;
-      
       border-bottom: 2px solid #f0f0f0;
 
       @media #{$mobile}{
@@ -1701,14 +1646,13 @@ section#uxdesign{
       }
     }//end of h3
 
-    >.container{
-
+    > .container{
       @media #{$mobile}{
         display: flex;
         justify-content: center;
       }
 
-      > .uxui-case {
+      > .uxui-case{
         display: flex;
         position: relative;
         // height: 280px;
@@ -1723,7 +1667,7 @@ section#uxdesign{
           &:last-child{margin-left: 30px;}
         }
   
-        > .ui-frame {
+        > .ui-frame{
           display: block;
           position: absolute;
           left: 50%;
@@ -1735,19 +1679,12 @@ section#uxdesign{
           
           @media #{$mobile}{
             order:100;
-            
             position: initial;
             width: 100%;
             height: auto;
             margin: 0;
           }
 
-          // &:nth-child(1){
-          //   > img{
-              
-          //   }
-          // }
-          
           > img {
             display: block;
             width: 100%;
@@ -1761,7 +1698,7 @@ section#uxdesign{
           }//end of img
         }//end of .ui-frame
   
-        > .ux-frame {
+        > .ux-frame{
           display: block;
           position: absolute;
           right: 50%;
@@ -1776,11 +1713,10 @@ section#uxdesign{
             width: 100%;
             height: auto;
             margin: 0;
-
             order:300;
           }
 
-          > img {
+          > img{
             display: block;
             width: 100%;
             height: 100%;
@@ -1793,19 +1729,21 @@ section#uxdesign{
           }
         }//end of .ux-frame
   
-        &:hover > .ui-frame {
-          left: 0;
-          margin-left: 0;
-          transition: ease-out 0.3s;
+        &:hover{
+          > .ui-frame{
+            left: 0;
+            margin-left: 0;
+            transition: ease-out 0.3s;
+          }
+
+          > .ux-frame{
+            right: 0;
+            margin-right: 0;
+            transition: ease-out 0.3s;
+          }
         }
   
-        &:hover > .ux-frame {
-          right: 0;
-          margin-right: 0;
-          transition: ease-out 0.3s;
-        }
-  
-        > dl {
+        > dl{
           width: 40%;
           height: 280px;
           margin: 0 auto;
@@ -1822,7 +1760,7 @@ section#uxdesign{
             box-sizing: border-box;
           }
   
-          > dt {
+          > dt{
             color: #404040;
             font-size: 22px;
             font-weight: 600;
@@ -1832,19 +1770,15 @@ section#uxdesign{
             }
           }
   
-          > dd {
+          > dd{
             margin-top: 30px;
             color: #404040;
             font-size: 13px;
             line-height: 24px;
-
-            // @media #{$mobile}{
-            //   br{display: none;}
-            // }
           }
         }//end of dl
   
-        &:nth-of-type(2) {
+        &:nth-of-type(2){
           margin-top: 30px;
 
           @media #{$mobile}{
@@ -1852,26 +1786,19 @@ section#uxdesign{
           }
         }
       }//end of .uxui-case
-    }
-
+    }//end of .container
   }//end of .uxui
 }//end of #uxdesign
 
-
 section#portfolio{
-  // padding-top: 80px;
+  > h2:before{
+    display: block;
+    transform: translate(3px, 50px);
+    color: $weight-color;
+    content: 'PORTFOLIO';
+  } 
 
-  > h2{
-    &:before{
-      display: block;
-      transform: translate(3px, 50px);
-      color: $weight-color;
-      content: 'PORTFOLIO';
-    } 
-
-  }
-
-  >article{
+  > article{
     width: 1200px;
     margin: 0 auto;
 
@@ -1881,7 +1808,7 @@ section#portfolio{
     }
   }
 
-  >.slides{
+  > .slides{
     position: relative;
     
     @media #{$mobile}{
@@ -1890,14 +1817,13 @@ section#portfolio{
       justify-content: space-between;
     }
       
-    >.slides-pagination{
-        display: flex;
-        justify-content: space-around;
+    > .slides-pagination{
+      display: flex;
+      justify-content: space-around;
+      width: 840px;
+      margin: 0 auto 96px;
 
-        width: 840px;
-        margin: 0 auto 96px;
-        
-        @media #{$mobile}{
+      @media #{$mobile}{
           justify-content: space-between;
           position: absolute;
           left: 50%;
@@ -1908,152 +1834,149 @@ section#portfolio{
           margin-left: -90px;
           background-color: #ddd;
           border-radius: 50px;
+      }
+
+      > li{
+        width: 120px;
+
+        @media #{$mobile}{
+              width: 60px;
         }
 
-        >li{
-            width: 120px;
+        > a{
+          display: block;
+          height: 40px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 40px;
+          text-align: center;
+          border: 1px solid #ddd;
+          border-radius: 20px;
 
-            @media #{$mobile}{
-              width: 60px;
-            }
-
-            >a{
-                display: block;
-                height: 40px;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 40px;
-                text-align: center;
-                border: 1px solid #ddd;
-                border-radius: 20px;
-                
-                @media #{$mobile}{
+          @media #{$mobile}{
                   height: 10px;
                   text-indent: -9999px;
                   border-radius: 50px;
                   transition: all 0.5s;
-                }
-                
-                &:hover{
-                    color: #fff;
-                    background-color: $pri-color;
+          }
 
-                    @media #{$mobile}{
-    
-                    }
-                }
-            }                        
-            
-            &.on>a{                            
-                color: #fff;
-                background-color: $pri-color;
+          &:hover{
+                  color: #fff;
+                  background-color: $pri-color;
+          }
+        }                        
 
-                @media #{$mobile}{
+        &.on >a{                            
+          color: #fff;
+          background-color: $pri-color;
+
+          @media #{$mobile}{
     
-                }
-            }
-            
+          }
         }
-    }//.slides-pagination
+      }
+    }//end of .slides-pagination
 
-    >.slides-container{
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        height: 380px;
-        
+    > .slides-container{
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 380px;
+
+      @media #{$mobile}{
+        height: 650px;
+      }
+
+      > figure{
+        display: none;
+        justify-content: space-between;
+        position: absolute;
+        left: 0;
+        top: 0;
+
         @media #{$mobile}{
-          height: 650px;
+          flex-flow: column-reverse wrap;
         }
-        
-        >figure{
-            display: none;
-            justify-content: space-between;
-            position: absolute;
-            left: 0;
-            top: 0;
+
+        &:nth-child(1){
+          display: flex;
+        }
+
+        > figcaption{
+          width: 500px;
+          padding-top: 35px;
+
+          @media #{$mobile}{
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            padding-bottom: 100px;
+          }
+
+          > h3{
+            color: $weight-color;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+          }
+
+          > .tip{
+            margin-top: 8px;
+            color: #909090;
+            font-size: 16px;                               
+          }
+
+          > .desc,
+          > .tools,
+          > .etc{
+            margin-top: 20px;
+            color: #404040;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 24px; 
 
             @media #{$mobile}{
-              flex-flow: column-reverse wrap;
-              // position: initial;
+              br{display: none;}
             }
-            
-            &:nth-child(1){display: flex;}
-            
-            >figcaption{
-                width: 500px;
-                padding-top: 35px;
+          }
+
+          > .etc{
+            margin-top: 0;
+          }
+
+          > .btn{
+            display: flex;
+
+            > a{
+              display: block;
+              width: 132px;
+              height: 40px;
+              margin-top: 30px;
+              color: #222;
+              font-weight: 400;
+              font-size: 15px;
+              line-height: 38px;
+              letter-spacing: 2px;
+              text-align: center;
+              background-color: #dedede;
+              border-radius: 50px;
+              box-sizing: border-box;
+              transition: ease-out 0.2s;
+
+              &.proc{
+                margin-right: 10px;
 
                 @media #{$mobile}{
-                  display: block;
-                  width: 80%;
-                  margin: 0 auto;
-                  padding-bottom: 100px;
+                  display: none;
                 }
-
-                >h3{
-                    color: $weight-color;
-                    font-weight: 500;
-                    font-size: 20px;
-                    line-height: 24px;
-                }
-                >.tip{
-                    margin-top: 8px;
-                    color: #909090;
-                    font-size: 16px;                               
-                }
-                >.desc,
-                >.tools,
-                >.etc{
-                    margin-top: 20px;
-                    color: #404040;
-                    font-size: 13px;
-                    font-weight: 400;
-                    line-height: 24px; 
-                    
-                    @media #{$mobile}{
-                      br{display: none;}
-                    }
-                }
-
-                
-
-                >.etc{
-                  margin-top: 0;
-                }
-
-                >.btn{
-                    display: flex;
-
-                    >a{
-                        display: block;
-                        width: 132px;
-                        height: 40px;
-                        margin-top: 30px;
-                        font-weight: 400;
-                        font-size: 15px;
-                        line-height: 38px;
-                        letter-spacing: 2px;
-                        text-align: center;
-                        color: #222;
-                        background-color: #dedede;
-                        border-radius: 50px;
-                        box-sizing: border-box;
-                        transition: ease-out 0.2s;
-
-                        &.proc{
-                          margin-right: 10px;
-                          @media #{$mobile}{
-                            display: none;
-                          }
-                        }
+              }
 
                         &:hover{
                             color: #fff;
                             background-color: $pri-color;
                         }
-                    }//a    
-                }//.btn
+            }//end of a    
+          }//end of .btn
                     
                 >.shadow{
                     display: none;
@@ -2090,7 +2013,7 @@ section#portfolio{
                         margin: 370px 0 0 410px;
                     }
                 }//.shadow
-            }//figcaption
+        }//end of figcaption
 
             >.frame{
                 display: block;
@@ -2121,10 +2044,10 @@ section#portfolio{
                     }
                 }
             }//end of .frame
-        }//end of figure
-    }//end of ..slides-container  
+      }//end of figure
+    }//end of .slides-container  
     
-    >a{
+    > a{
       display: none;
       position: absolute;
       bottom: 0;
@@ -2146,103 +2069,105 @@ section#portfolio{
         text-indent: -9999px;
       }
     }//end of a
-  }//.slides
+  }//end of .slides
 
-  >.intro{
+  > .intro{
     width: 100%;
     background-image: url(./../images/portfolio/bg_pofol.png);
     background-size: cover;
     
     .container{
-        width: 1200px;
-        margin: 0 auto;
-        padding: 80px 0;                
+      width: 1200px;
+      margin: 0 auto;
+      padding: 80px 0;                
         
+      @media #{$mobile}{
+        width: 100%;
+      }
+
+      > h3{
+        position: relative;
+        margin-bottom: 56px;
+        color: $weight-color;
+        font-size: 32px;
+        text-align: center;
+        font-weight: 500;
+
         @media #{$mobile}{
-          width: 100%;
+          font-size: 28px;
         }
 
-        >h3{
-            position: relative;
-            margin-bottom: 56px;
-            color: $weight-color;
-            font-size: 32px;
-            text-align: center;
-            font-weight: 500;
+        &:before{
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 58px;
+          height: 156px;
+          background-image: url(./../images/deocBlockTransparent.png);
+          content: '';
+        }
+
+        &:after{
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 180px;
+          width: 58px;
+          height: 156px;
+          background-image: url(./../images/decoBlockBlue.png);
+          content: '';
+        }
+
+        @media #{$mobile}{
+          &:before,
+          &:after{display: none;}
+
+          > span{
+            display: block;
+          }
+        }
+      }//end of h3
+
+      > p{
+        width: 664px;
+        margin: 0 auto 80px;
+        line-height: 30px;
+
+        @media #{$mobile}{
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        > span{
+            display: block;
+            margin-bottom: 30px;
 
             @media #{$mobile}{
-              font-size: 28px;
-            }
+              display: initial;
 
-            &:before{
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 58px;
-                height: 156px;
-                background-image: url(./../images/deocBlockTransparent.png);
-                content: '';
-            }
-
-            &:after{
-                display: block;
-                position: absolute;
-                right: 0;
-                top: 180px;
-                width: 58px;
-                height: 156px;
-                background-image: url(./../images/decoBlockBlue.png);
-                content: '';
-            }
-
-            @media #{$mobile}{
-              &:before,
-              &:after{display: none;}
-
-              >span{
-                display: block;
+                br{display: none;}
               }
-            }
         }
 
-        >p{
-            width: 664px;
-            margin: 0 auto 80px;
-            line-height: 30px;
-            // border: 1px solid #000;
-
-            @media #{$mobile}{
-              width: 90%;
-              margin-bottom: 20px;
-            }
-
-            >span{
-                display: block;
-                margin-bottom: 30px;
-
-                @media #{$mobile}{
-                  display: initial;
-                  br{display: none;}
-                }
-            }
-
-            >strong{font-weight: 400;}
+        > strong{
+            font-weight: 400;
         }
+      }
 
-        >.coding{
-            >h4{
-                overflow: hidden;
-                position: relative;
-                height: 300px;
-                margin-bottom: 104px;
-                color: $weight-color;
-                
-                @media #{$mobile}{
-                  width: 90%;
-                  margin: 0 auto 50px;
-                  text-align: center;
-                }
+      > .coding{
+        > h4{
+          overflow: hidden;
+          position: relative;
+          height: 300px;
+          margin-bottom: 104px;
+          color: $weight-color;
+
+          @media #{$mobile}{
+            width: 90%;
+            margin: 0 auto 50px;
+            text-align: center;
+          }
 
                 >span{
                     position: absolute;
@@ -2345,240 +2270,235 @@ section#portfolio{
                     }
                 }//.circle
 
-            }
+        }//end of h4
 
-            >div{
-                position: relative;
-                height: 436px;
-                padding-left: 550px;
-                background-image: url(./../images/portfolio/code02.png);
-                background-position: 50px 0;
-                background-repeat: no-repeat;
-                box-sizing: border-box;
-
-                @media #{$mobile}{
-                  
-                  width: 90%;
-                  margin: 0 auto;
-                  height: auto;
-                  padding:0 0 460px ;
-                  background-position: 0 bottom;
-                }
-
-                >h4{
-                    padding: 30px 0;
-                    color: $weight-color;
-                    font-size: 32px;
-
-                    @media #{$mobile}{
-                      padding: 0 0 30px 0;
-                      font-weight: 500;
-                      font-size: 20px;
-                    }
-                }
-
-                >p{
-                    line-height: 30px;
-
-                    @media #{$mobile}{
-                      line-height: 1.6;
-                    }
-
-                    
-                    >span{
-                      display: block;
-                      margin-bottom: 30px;
-
-                      @media #{$mobile}{
-                        margin-bottom: 20px;
-                      }
-                    }
-                }
-
-                >.circle{
-                    position: absolute;
-                    left: 380px;
-                    top: 40px;
-
-                    @media #{$mobile}{
-                      display: none;
-                    }
-
-                    >.ring{
-                        // display: none;
-                        position: absolute;
-                        border: 2px solid $sec-color;
-                        border-radius: 200px;
-
-                        &.ring_1{
-                            left: 0;
-                            top: 0px;
-                            width: 45px;
-                            height: 45px;
-                            opacity: 0.7;
-                        }
-
-                        &.ring_2{
-                            left:-6px;
-                            top: -6px;
-                            width: 57px;
-                            height: 57px;
-                            opacity: 0.6;
-                        }
-
-                        &.ring_3{
-                            left:-12px;
-                            top: -12px;
-                            width: 69px;
-                            height: 69px;
-                            opacity: 0.5;
-                        }
-
-                        &.ring_4{
-                            left:-18px;
-                            top: -18px;
-                            width: 81px;
-                            height: 81px;
-                            opacity: 0.4;
-                        }
-
-                        &.ring_5{
-                            left:-24px;
-                            top: -24px;
-                            width: 93px;
-                            height: 93px;
-                            opacity: 0.3;
-                        }
-
-                        &.ring_6{
-                            left:-30px;
-                            top: -30px;
-                            width: 105px;
-                            height: 105px;
-                            opacity: 0.2;
-                        }
-
-                        &.ring_7{
-                            left:-36px;
-                            top: -36px;
-                            width: 117px;
-                            height: 117px;
-                            opacity: 0.1;
-                        }
-                    }
-                }//.circle                
-            }
-        }
-    }    
-  }//.intro       
-
-  >.works{
-      position: relative;
-      
-      >h3{
+        > div{
           position: relative;
-          width: 300px;
-          margin: 0 auto 56px;
-          padding-bottom: 8px;
-          color: $weight-color;
-          font-weight: 500;
-          font-size: 32px;
-          text-align: center;
-          border-bottom: 2px solid #f0f0f0;
+          height: 436px;
+          padding-left: 550px;
+          background-image: url(./../images/portfolio/code02.png);
+          background-position: 50px 0;
+          background-repeat: no-repeat;
+          box-sizing: border-box;
 
           @media #{$mobile}{
-            font-size: 28px;
-          }
-      }
-
-      >.slide-list{
-          display: flex;
-          justify-content: space-between;
-
-          @media #{$mobile}{
-            display: block;
             width: 90%;
             margin: 0 auto;
+            height: auto;
+            padding:0 0 460px ;
+            background-position: 0 bottom;
           }
 
-          >li{
-              position: relative;
-              width: 384px;
-              background-color: #fff;
-              box-shadow: 0 7px 20px 0 rgba(182, 245, 206, 0.2);
-              padding-top: 24px;
-              box-sizing: border-box;
+          > h4{
+            padding: 30px 0;
+            color: $weight-color;
+            font-size: 32px;
+
+            @media #{$mobile}{
+              padding: 0 0 30px 0;
+              font-weight: 500;
+              font-size: 20px;
+            }
+          }
+
+          > p{
+            line-height: 30px;
+
+            @media #{$mobile}{
+              line-height: 1.6;
+            }
+
+            > span{
+              display: block;
+              margin-bottom: 30px;
 
               @media #{$mobile}{
-                width: 100%;
-                margin-bottom: 100px;
-                box-shadow: 0 0 10px #aaa;
-
-                &:last-child{margin-bottom: 0;}
+                margin-bottom: 20px;
               }
-
-              >h4{
-                  padding-bottom: 36px;                        
-                  color: $weight-color;
-                  font-weight: 500;
-                  font-size: 20px;
-                  text-align: center;
-              }
-
-              >p:nth-of-type(1){
-                  padding: 0 65px;
-                  color: #65616b;
-                  font-size: 16px;
-                  line-height: 24px; 
-                  
-                  >.tip{
-                      display: block;
-                      color: #ccc;
-                      font-size: 13px;
-                      padding-top: 20px;
-
-                      @media #{$mobile}{
-                        text-align: center;
-                      }
-                  }
-              }
-
-
-              >.btnShow{
-                  display: block;
-                  width: 180px;
-                  height: 46px;
-                  margin: 20px auto 40px;
-                  color: #fff;
-                  font-size: 18px;
-                  line-height: 46px;
-                  text-align: center;
-                  background-color: $pri-color;
-                  border: 1px solid $pri-color;
-                  border-radius: 5px;
-                  box-shadow: inset 0 0 0 0 #fff;
-                  transition: ease-out 0.3s;      
-                
-                  &:hover {
-                    color: $pri-color;
-                    box-shadow: inset 180px 0 0 0 #fff;
-                  }                                
-              }  
-              
-              >.frame{
-                  display: block;
-                  img{
-                      display: block;
-                      width: 100%;
-                  }
-              }
-              
+            }
           }
+
+          > .circle{
+            position: absolute;
+            left: 380px;
+            top: 40px;
+
+            @media #{$mobile}{
+              display: none;
+            }
+
+            > .ring{
+              position: absolute;
+              border: 2px solid $sec-color;
+              border-radius: 200px;
+
+              &.ring_1{
+                left: 0;
+                top: 0px;
+                width: 45px;
+                height: 45px;
+                opacity: 0.7;
+              }
+
+              &.ring_2{
+                left:-6px;
+                top: -6px;
+                width: 57px;
+                height: 57px;
+                opacity: 0.6;
+              }
+
+              &.ring_3{
+                left:-12px;
+                top: -12px;
+                width: 69px;
+                height: 69px;
+                opacity: 0.5;
+              }
+
+              &.ring_4{
+                left:-18px;
+                top: -18px;
+                width: 81px;
+                height: 81px;
+                opacity: 0.4;
+              }
+
+              &.ring_5{
+                left:-24px;
+                top: -24px;
+                width: 93px;
+                height: 93px;
+                opacity: 0.3;
+              }
+
+              &.ring_6{
+                left:-30px;
+                top: -30px;
+                width: 105px;
+                height: 105px;
+                opacity: 0.2;
+              }
+
+              &.ring_7{
+                left:-36px;
+                top: -36px;
+                width: 117px;
+                height: 117px;
+                opacity: 0.1;
+              }
+            }//end of .ring
+          }//end of .circle                
+        }//end of div
+      }//end of .coding
+    }//end of .container 
+  }//end of .intro       
+
+  > .works{
+    position: relative;
+
+    > h3{
+      position: relative;
+      width: 300px;
+      margin: 0 auto 56px;
+      padding-bottom: 8px;
+      color: $weight-color;
+      font-weight: 500;
+      font-size: 32px;
+      text-align: center;
+      border-bottom: 2px solid #f0f0f0;
+
+      @media #{$mobile}{
+        font-size: 28px;
       }
-  }
+    }
+
+    > .slide-list{
+      display: flex;
+      justify-content: space-between;
+
+      @media #{$mobile}{
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      > li{
+        position: relative;
+        width: 384px;
+        padding-top: 24px;
+        background-color: #fff;
+        box-shadow: 0 7px 20px 0 rgba(182, 245, 206, 0.2);
+        box-sizing: border-box;
+
+        @media #{$mobile}{
+          width: 100%;
+          margin-bottom: 100px;
+          box-shadow: 0 0 10px #aaa;
+
+          &:last-child{margin-bottom: 0;}
+        }
+
+        > h4{
+          padding-bottom: 36px;                        
+          color: $weight-color;
+          font-weight: 500;
+          font-size: 20px;
+          text-align: center;
+        }
+
+        > p:nth-of-type(1){
+          padding: 0 65px;
+          color: #65616b;
+          font-size: 16px;
+          line-height: 24px; 
+
+          > .tip{
+            display: block;
+            padding-top: 20px;
+            color: #ccc;
+            font-size: 13px;
+
+            @media #{$mobile}{
+              text-align: center;
+            }
+          }
+        }
+
+        > .btnShow{
+          display: block;
+          width: 180px;
+          height: 46px;
+          margin: 20px auto 40px;
+          color: #fff;
+          font-size: 18px;
+          line-height: 46px;
+          text-align: center;
+          background-color: $pri-color;
+          border: 1px solid $pri-color;
+          border-radius: 5px;
+          box-shadow: inset 0 0 0 0 #fff;
+          transition: ease-out 0.3s;      
+
+          &:hover {
+            color: $pri-color;
+            box-shadow: inset 180px 0 0 0 #fff;
+          }                                
+        }  
+
+        > .frame{
+          display: block;
+
+          img{
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }//end of .slide-list
+  }//end of .works
 
 }//end of #portfolio
-
 
 section#contact{
   width: 1200px;
@@ -2588,16 +2508,14 @@ section#contact{
     width: 100%;
   }
 
-  > h2{
-    &:before{
-      display: block;
-      transform: translate(3px, 50px);
-      color: $weight-color;
-      content: 'CONTACT';
-    } 
+  > h2:before{
+    display: block;
+    transform: translate(3px, 50px);
+    color: $weight-color;
+    content: 'CONTACT';
   }
 
-  >.apply{
+  > .apply{
     border: 1px solid #e4e4e4;
     border-radius: 5px;
     box-sizing: border-box;
@@ -2606,20 +2524,20 @@ section#contact{
       border: none;
     }
 
-    >.help{
+    > .help{
       position: relative;
       height: 120px;
       margin-bottom: 10px;
       border-bottom: 1px solid #e4e4e4;
       
-    @media #{$mobile}{ 
-      position: initial;     
-      width: 90%;
-      margin: 0 auto;
-      padding-bottom: 80px;
-    }
+      @media #{$mobile}{ 
+        position: initial;     
+        width: 90%;
+        margin: 0 auto;
+        padding-bottom: 80px;
+      }
 
-      >h2{
+      > h2{
         position: absolute;
         left: 75px;
         top: 45px;
@@ -2630,10 +2548,8 @@ section#contact{
         @media #{$mobile}{
           position: initial;
           display: block;
-          // padding-bottom: 30px;
           margin-bottom: 20px;
           font-size: 28px;
-          
         }
 
         &:after{
@@ -2652,13 +2568,13 @@ section#contact{
         }
       }
 
-      >p{
+      > p{
         position: absolute;
         left: 610px;
         top: 40px;
         font-size: 1.2em;
         line-height: 1.7em;
-        
+
         @media #{$mobile}{
           position: initial;
           display: block;
@@ -2667,14 +2583,14 @@ section#contact{
       }
     }//end of .help
 
-    >dl{
-      
+    > dl{
       @media #{$mobile}{      
         width: 90%;
         margin: 0 auto;
       }
+
       //질문리스트
-      >dt{
+      > dt{
         &.on{
           background-color: $sec-color;
   
@@ -2683,7 +2599,7 @@ section#contact{
           }
         }
   
-        >a{
+        > a{
           position: relative;
           display: block;
           width: 90%;
@@ -2697,8 +2613,8 @@ section#contact{
             margin-left: 0;
             width: 100%;
           }
-  
-          >span.arr{
+
+          > span.arr{
             display: block;
             position: absolute;
             right: 0;
@@ -2708,12 +2624,12 @@ section#contact{
             text-indent: -9999px;
             background-image: url(../images/contact/after_down.png);
             background-repeat: no-repeat;
-        }  
+          }  
         }//end of a
       }//end of dt
-  
+
       //질문에 대한 답변 영역
-      >dd{
+      > dd{
         display: none;
         background-color: #f8f8f8;
 
@@ -2735,7 +2651,7 @@ section#contact{
           }
         }
   
-        >.answer{
+        > .answer{
           margin: 0 90px;
           padding: 40px 0;
         
@@ -2749,10 +2665,9 @@ section#contact{
           }
         } 
       }//end of dd
+    }//end of dl
 
-    }
-
-    >p{
+    > p{
       display: flex;
       align-items: center;
       height: 100px;
@@ -2787,31 +2702,33 @@ footer{
     min-width: 100%;
   }
 
-  >.working{
+  > .working{
     border-top: 1px solid #aaa;
 
-    >p{
+    > p{
       padding-left: 7%;
       height: 80px;
       line-height: 80px;
 
-      >a{
+      > a{
         margin: 0 30px;
 
-        &:hover{text-decoration: underline;}
+        &:hover{
+          text-decoration: underline;
+        }
       }
     }//end of p
   }//end of working
 
-  >.info{
+  > .info{
     background-color: #222;
 
-    >.container{
+    > .container{
       position: relative;//푸터로고에 대한 기준점
       padding: 45px 7% 40px;
 
-      >h2,
-      >p{
+      > h2,
+      > p{
         margin-bottom: 15px;
         color: #aaa;
         font-size: 13px;
@@ -2820,11 +2737,11 @@ footer{
           margin-bottom: 10px;
         }
 
-        >a{
+        > a{
           color: #aaa;
         }
 
-        >.bar{
+        > .bar{
           margin: 0 10px;
         }
       }//end of h2,p
@@ -2863,7 +2780,7 @@ aside{
 	bottom: 1em;
   z-index: 1000;
 
-  >a{
+  > a{
     display: block;
     width: 28px;
     height: 28px;
@@ -2871,7 +2788,7 @@ aside{
     text-align: center;
     background-color: $pri-color;
 
-    >i{
+    > i{
       color: #fff;
     }
   }

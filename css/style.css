@@ -112,6 +112,11 @@
   background-position: center;
   background-attachment: fixed;
 }
+@media screen and (max-width:640px) {
+  #home {
+    background-attachment: local, scroll;
+  }
+}
 #home:before {
   display: block;
   width: 100%;
@@ -545,7 +550,7 @@ section#aboutme > .container > .profile > div > .myphoto > img {
     transform: translateX(-21%);
   }
 }
-@media screen and (max-width:440px) {
+@media screen and (max-width:390px) {
   section#aboutme > .container > .profile > div > .myphoto > img {
     transform: translateX(-33%);
   }
@@ -736,7 +741,7 @@ section#aboutme > .talk .screen {
     width: 450px;
   }
 }
-@media screen and (max-width:440px) {
+@media screen and (max-width:390px) {
   section#aboutme > .talk .screen {
     width: 100%;
   }
@@ -772,7 +777,7 @@ section#aboutme > .talk .screen > .talk__container {
     margin: 0 auto;
   }
 }
-@media screen and (max-width:440px) {
+@media screen and (max-width:390px) {
   section#aboutme > .talk .screen > .talk__container {
     width: 2630px;
     left: -500px;
@@ -902,7 +907,7 @@ section#aboutme > .talk .screen > a {
 section#aboutme > .talk .screen > a.talk-prev {
   left: 0;
 }
-@media screen and (max-width:440px) {
+@media screen and (max-width:390px) {
   section#aboutme > .talk .screen > a.talk-prev {
     z-index: 1000;
   }
@@ -910,7 +915,7 @@ section#aboutme > .talk .screen > a.talk-prev {
 section#aboutme > .talk .screen > a.talk-next {
   right: 0;
 }
-@media screen and (max-width:440px) {
+@media screen and (max-width:390px) {
   section#aboutme > .talk .screen > a.talk-next {
     z-index: 1000;
   }
@@ -941,10 +946,36 @@ section#skill > article.skill-1 {
     border: 1px solid #eee;
   }
 }
+section#skill > article.skill-1 li:first-child {
+  transform: translateX(140px);
+  background-image: url(./../images/skill/skill01.png);
+}
+@media screen and (max-width:640px) {
+  section#skill > article.skill-1 li:first-child {
+    background-position: -30px 0;
+    transform: translateX(0);
+  }
+}
+section#skill > article.skill-1 li:last-child {
+  background-image: url(./../images/skill/skill02.png);
+}
 @media screen and (max-width:640px) {
   section#skill > article.skill-2 {
     padding-top: 40px;
   }
+}
+section#skill > article.skill-2 li:first-child {
+  transform: translateX(180px);
+  background-image: url(./../images/skill/skill03.png);
+}
+@media screen and (max-width:640px) {
+  section#skill > article.skill-2 li:first-child {
+    background-position: 0 0;
+    transform: translateX(0);
+  }
+}
+section#skill > article.skill-2 li:last-child {
+  background-image: url(./../images/skill/skill04.png);
 }
 section#skill > article > h3 {
   margin-bottom: 80px;
@@ -1001,32 +1032,6 @@ section#skill > article > ol > li > h4 {
 }
 section#skill > article > ol > li > p {
   line-height: 1.6;
-}
-section#skill > article.skill-1 li:first-child {
-  transform: translateX(140px);
-  background-image: url(./../images/skill/skill01.png);
-}
-@media screen and (max-width:640px) {
-  section#skill > article.skill-1 li:first-child {
-    background-position: -30px 0;
-    transform: translateX(0);
-  }
-}
-section#skill > article.skill-1 li:last-child {
-  background-image: url(./../images/skill/skill02.png);
-}
-section#skill > article.skill-2 li:first-child {
-  transform: translateX(180px);
-  background-image: url(./../images/skill/skill03.png);
-}
-@media screen and (max-width:640px) {
-  section#skill > article.skill-2 li:first-child {
-    background-position: 0 0;
-    transform: translateX(0);
-  }
-}
-section#skill > article.skill-2 li:last-child {
-  background-image: url(./../images/skill/skill04.png);
 }
 
 section#ability {
@@ -1382,13 +1387,6 @@ section#uxdesign > .intro > h3 {
   text-align: center;
   font-weight: 500;
 }
-@media screen and (max-width:640px) {
-  section#uxdesign > .intro > h3 > span {
-    display: block;
-    height: 0;
-    text-indent: -9999px;
-  }
-}
 section#uxdesign > .intro > h3:before {
   display: block;
   position: absolute;
@@ -1412,6 +1410,11 @@ section#uxdesign > .intro > h3:after {
 @media screen and (max-width:640px) {
   section#uxdesign > .intro > h3:before, section#uxdesign > .intro > h3:after {
     display: none;
+  }
+  section#uxdesign > .intro > h3 > span {
+    display: block;
+    height: 0;
+    text-indent: -9999px;
   }
 }
 section#uxdesign > .intro > p {
@@ -1832,12 +1835,12 @@ section#portfolio > .slides > .slides-container > figure > figcaption > .btn > a
   width: 132px;
   height: 40px;
   margin-top: 30px;
+  color: #222;
   font-weight: 400;
   font-size: 15px;
   line-height: 38px;
   letter-spacing: 2px;
   text-align: center;
-  color: #222;
   background-color: #dedede;
   border-radius: 50px;
   box-sizing: border-box;
@@ -2267,9 +2270,9 @@ section#portfolio > .works > .slide-list {
 section#portfolio > .works > .slide-list > li {
   position: relative;
   width: 384px;
+  padding-top: 24px;
   background-color: #fff;
   box-shadow: 0 7px 20px 0 rgba(182, 245, 206, 0.2);
-  padding-top: 24px;
   box-sizing: border-box;
 }
 @media screen and (max-width:640px) {
@@ -2297,9 +2300,9 @@ section#portfolio > .works > .slide-list > li > p:nth-of-type(1) {
 }
 section#portfolio > .works > .slide-list > li > p:nth-of-type(1) > .tip {
   display: block;
+  padding-top: 20px;
   color: #ccc;
   font-size: 13px;
-  padding-top: 20px;
 }
 @media screen and (max-width:640px) {
   section#portfolio > .works > .slide-list > li > p:nth-of-type(1) > .tip {
